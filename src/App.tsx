@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, type Key } from 'react'
 import './App.css'
 import type { ConfigData } from './types/fields'
 import StringInput from './components/inputs/StringInput'
+import inputStyle from './styles/formStyle'
+import IntegerInput from './components/inputs/IntegerInput'
+import FloatInput from './components/inputs/FloatInput'
 
 const initial: ConfigData = {
   name : 'Alireza Aghaei',
@@ -18,13 +21,19 @@ const initial: ConfigData = {
 
 function App() {
   const [data, setData] = useState<ConfigData>(initial)
+  const update = <K extends keyof ConfigData>(key:K ,value:ConfigData[K]) => {
+    setData((d)=>({...d,[key] : value}))
+  }
+
   return (
     <div className='flex'>
-      <div className=''>
-        <StringInput/>
+      <div className='flex-1'>
+        <StringInput inputStyle={inputStyle} label='Name' value={data.name} onChange={(v)=>update('name',v)} minLength={0} maxLength={30}/>
+        <IntegerInput inputStyle={inputStyle} label='Integer' value={data.integer} onChange={(v)=>update('integer',v)} maxValue={10000}/>
+        <FloatInput inputStyle={inputStyle} label='Float' value={data.float} onChange={(v)=>update('float',v)} />
         {/* ... */}
       </div>
-      <div className=''>
+      <div className='flex-1'>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </div>
