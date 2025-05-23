@@ -37,6 +37,8 @@ testprojekt/
 ## Installation
 
 ```bash
+git clone https://github.com/alirezaaghae/testprojekt.git
+cd testprojekt
 npm install
 ```
 
