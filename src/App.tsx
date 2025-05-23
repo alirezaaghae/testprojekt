@@ -2,9 +2,10 @@ import { useState, type Key } from 'react'
 import './App.css'
 import type { ConfigData } from './types/fields'
 import StringInput from './components/inputs/StringInput'
-import inputStyle from './styles/formStyle'
 import IntegerInput from './components/inputs/IntegerInput'
 import FloatInput from './components/inputs/FloatInput'
+import { validateField } from './utils/validators'
+import { validationConfig } from './utils/vconfig'
 
 const initial: ConfigData = {
   name : 'Alireza Aghaei',
@@ -21,16 +22,21 @@ const initial: ConfigData = {
 
 function App() {
   const [data, setData] = useState<ConfigData>(initial)
+  const [errors, setErrors] = useState<Partial<Record<keyof ConfigData, string>>>({});
   const update = <K extends keyof ConfigData>(key:K ,value:ConfigData[K]) => {
     setData((d)=>({...d,[key] : value}))
+    const error = validateField(key, value, validationConfig[key]);
+    setErrors((prev) => ({ ...prev, [key]: error || "" }));  
+    console.log(value);
+    
   }
 
   return (
     <div className='flex'>
       <div className='flex-1'>
-        <StringInput inputStyle={inputStyle} label='Name' value={data.name} onChange={(v)=>update('name',v)} minLength={0} maxLength={30}/>
-        <IntegerInput inputStyle={inputStyle} label='Integer' value={data.integer} onChange={(v)=>update('integer',v)} maxValue={10000}/>
-        <FloatInput inputStyle={inputStyle} label='Float' value={data.float} onChange={(v)=>update('float',v)} />
+        <StringInput label='Name' value={data.name} onChange={(v)=>update('name',v)} error={errors.name} minLength={0} maxLength={30}/>
+        <IntegerInput label='Integer' value={data.integer} onChange={(v)=>update('integer',v)} error={errors.integer} maxValue={10000}/>
+        <FloatInput label='Float' value={data.float} onChange={(v)=>update('float',v)} error={errors.float}/>
         {/* ... */}
       </div>
       <div className='flex-1'>

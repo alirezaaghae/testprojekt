@@ -1,23 +1,23 @@
+import { inputStyle } from "../../utils/inputStyle";
+
 interface Props {
-    inputStyle?:string
-    label:string
+    label: string
     value: string
     onChange: (v: string) =>void
     minLength?: number
     maxLength?: number
+    error?: string
 }
 
-const StringInput = ({inputStyle,label,value,onChange,minLength,maxLength}:Props) => {
-    const handle = (e: React.ChangeEvent<HTMLInputElement>) =>{
-        const v = e.target.value 
-        if (minLength && v.length < minLength) return
-        if (maxLength && v.length > maxLength) return
-        onChange(v)
-    }
+const StringInput = ({label,value,onChange,error,minLength,maxLength}:Props) => {
+    
     return (
         <div>
-            <label>{label}</label>
-            <input className={inputStyle} type="text" placeholder="Name" value={value} onChange={handle}/>
+            <label className="flex flex-col gap-1 mb-3">
+                <span className="text-sm text-gray-700">{label}</span>
+                <input className={inputStyle(error)} type="text" placeholder="Name" value={value} onChange={(e) => onChange(e.target.value)}/>
+                {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+            </label>
         </div>
     )
 }

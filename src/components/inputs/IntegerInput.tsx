@@ -1,23 +1,28 @@
+import { inputStyle } from "../../utils/inputStyle";
+
 interface Props{
-    inputStyle?:string
     label:string
     value: number
     onChange: (v: number) => void
     minValue?: number
     maxValue?: number
+    error?: string
 }
-const IntegerInput = ({ inputStyle,label, value, onChange, minValue, maxValue } : Props) => {
+const IntegerInput = ({ label, value, onChange, error, minValue, maxValue } : Props) => {
     const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const v = parseInt(e.target.value, 10)
-    if (isNaN(v)) return
-    if (minValue !== undefined && v < minValue) return
-    if (maxValue !== undefined && v > maxValue) return
+    const v = parseInt(e.target.value)
+    if (isNaN(v)) return onChange(0)
+    // if (minValue !== undefined && v < minValue) return
+    // if (maxValue !== undefined && v > maxValue) return
     onChange(v)
   }
   return (
     <div>
-      <label>{label}</label>
-      <input className={inputStyle} type="number" value={value} onChange={handle} />
+      <label className="flex flex-col gap-1 mb-3">
+        <span className="text-sm text-gray-700">{label}</span>
+        <input className={inputStyle(error)} type="number" value={value} onChange={handle} />
+        {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+      </label>
     </div>
   )
 }
