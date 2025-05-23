@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
