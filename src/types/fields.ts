@@ -5,8 +5,8 @@ export interface ConfigData {
     date : string
     datetime : string
     duration : number
-    point : number[]
-    extent : number[]
+    point : [number, number]
+    extent : [number, number, number, number]
     select : string
     combobox : string
 }
