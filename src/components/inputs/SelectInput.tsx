@@ -9,7 +9,7 @@ interface Props {
 }
 const SelectInput = ({ label, value, onChange, items, error }:Props) => {
   return (
-    <div>
+    <div className="mb-3">
       <label className={componentsStyle.body}>
         <span className={componentsStyle.label}>{label}</span>
         <select className={inputStyle(error)} value={value} onChange={(e) => onChange(e.target.value)}>
@@ -17,8 +17,8 @@ const SelectInput = ({ label, value, onChange, items, error }:Props) => {
                 <option key={key} value={key}>{val}</option>
             ))}
         </select>
-        {error && <p className={componentsStyle.error}>{error}</p>}
       </label>
+        {error && <p className={componentsStyle.error}>{error}</p>}
     </div>
   )
 }

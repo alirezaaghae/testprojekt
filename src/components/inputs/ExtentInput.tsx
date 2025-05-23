@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -14,17 +14,17 @@ const ExtentInput= ({ label, value, onChange, error }:Props) => {
     onChange(nv)
   }
   return (
-    <div>
+    <div className="mb-3">
       <label className={componentsStyle.body}>
-        <span className={componentsStyle.label}>{label} (xmin, ymin, xmax, ymax)</span>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem' }}>
-            <input type="number" step="any" className={inputStyle(error)} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
-            <input type="number" step="any" className={inputStyle(error)} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
-            <input type="number" step="any" className={inputStyle(error)} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
-            <input type="number" step="any" className={inputStyle(error)} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
+        <span className={componentsStyle.label}>{label}</span>
+        <div className="grid grid-cols-4 divide-x-1 divide-gray-300 h-full border border-[#373737] rounded-r-[10px]">
+            <input type="number" step="any" placeholder="xmin" className={componentsStyle.extent} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymin" className={componentsStyle.extent} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="xmax" className={componentsStyle.extent} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymax" className={componentsStyle.extent} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
         </div>
-        {error && <p className={componentsStyle.error}>{error}</p>}
       </label>
+        {error && <p className={componentsStyle.error}>{error}</p>}
     </div>
   )
 }

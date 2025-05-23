@@ -10,7 +10,7 @@ interface Props{
 }
 const DateInput= ({ label, value, onChange, error, minValue, maxValue }: Props) => {
   return (
-    <div>
+    <div className="mb-3">
       <label className={componentsStyle.body}>
         <span className={componentsStyle.label}>{label}</span>
         <input
@@ -21,8 +21,8 @@ const DateInput= ({ label, value, onChange, error, minValue, maxValue }: Props) 
             className={inputStyle(error)}
             onChange={(e) => onChange(e.target.value)}
         />
-        {error && <p className={componentsStyle.error}>{error}</p>}
       </label>
+        {error && <p className={componentsStyle.error}>{error}</p>}
     </div>
   )
 }

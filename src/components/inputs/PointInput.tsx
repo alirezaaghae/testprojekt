@@ -9,15 +9,15 @@ interface Props {
 const PointInput= ({ label, value, onChange, error }:Props) => {
   const [x, y] = value
   return (
-    <div>
+    <div className="mb-3">
         <label className={componentsStyle.body}>
                 <span className={componentsStyle.label}>{label} (x, y)</span>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
+      <div className="grid grid-cols-2 h-full w-full divide-x-1 divide-gray-300 border border-[#373737] rounded-r-[10px]">
         <input
           type="number"
           step="any"
           value={x}
-          className={inputStyle(error)}
+          className={componentsStyle.extent}
           onChange={(e) => onChange([parseFloat(e.target.value), y])}
           style={{ flex: 1 }}
         />
@@ -25,13 +25,13 @@ const PointInput= ({ label, value, onChange, error }:Props) => {
           type="number"
           step="any"
           value={y}
-          className={inputStyle(error)}
+          className={componentsStyle.extent}
           onChange={(e) => onChange([x, parseFloat(e.target.value)])}
           style={{ flex: 1 }}
         />
       </div>
-        {error && <p className={componentsStyle.error}>{error}</p>}
       </label>
+        {error && <p className={componentsStyle.error}>{error}</p>}
     </div>
   )
 }

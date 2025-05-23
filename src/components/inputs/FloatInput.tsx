@@ -15,12 +15,12 @@ const FloatInput = ({ label, value, onChange, error } : Props) => {
     onChange(v)
   }
   return (
-    <div>
+    <div className="mb-3">
       <label className={componentsStyle.body}>
         <span className={componentsStyle.label}>{label}</span>
         <input className={inputStyle(error)} type="number" step="any" value={value} onChange={handle} />
-        {error && <p className={componentsStyle.error}>{error}</p>}
       </label>
+        {error && <p className={componentsStyle.error}>{error}</p>}
     </div>
   )
 }

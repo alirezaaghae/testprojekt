@@ -10,12 +10,12 @@ interface Props {
 const StringInput = ({label,value,onChange,error}:Props) => {
     
     return (
-        <div>
+        <div className="mb-3">
             <label className={componentsStyle.body}>
                 <span className={componentsStyle.label}>{label}</span>
                 <input className={inputStyle(error)} type="text" placeholder="Name" value={value} onChange={(e) => onChange(e.target.value)}/>
-                {error && <p className={componentsStyle.error}>{error}</p>}
             </label>
+            {error && <p className={componentsStyle.error}>{error}</p>}
         </div>
     )
 }
