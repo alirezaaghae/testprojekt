@@ -1,4 +1,4 @@
-import { useState, type Key } from 'react'
+import { useState } from 'react'
 import './App.css'
 import type { ConfigData } from './types/fields'
 import StringInput from './components/inputs/StringInput'
