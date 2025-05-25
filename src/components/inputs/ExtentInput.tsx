@@ -15,13 +15,13 @@ const ExtentInput= ({ label, value, onChange, error }:Props) => {
   }
   return (
     <div className="mb-3">
-      <label className={componentsStyle.body}>
+      <label className={`${componentsStyle.body} h-24`}>
         <span className={componentsStyle.label}>{label}</span>
-        <div className="grid grid-cols-4 divide-x-1 divide-gray-300 h-full border border-[#373737] rounded-r-[10px]">
-            <input type="number" step="any" placeholder="xmin" className={componentsStyle.extent} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="ymin" className={componentsStyle.extent} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="xmax" className={componentsStyle.extent} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="ymax" className={componentsStyle.extent} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
+        <div className={componentsStyle.extentBox}>
+            <input type="number" step="any" placeholder="xmin" className={componentsStyle.extents} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymin" className={componentsStyle.extents} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="xmax" className={componentsStyle.extents} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymax" className={componentsStyle.extents} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
         </div>
       </label>
         {error && <p className={componentsStyle.error}>{error}</p>}

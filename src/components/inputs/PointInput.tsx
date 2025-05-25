@@ -12,12 +12,12 @@ const PointInput= ({ label, value, onChange, error }:Props) => {
     <div className="mb-3">
         <label className={componentsStyle.body}>
                 <span className={componentsStyle.label}>{label} (x, y)</span>
-      <div className="grid grid-cols-2 h-full w-full divide-x-1 divide-gray-300 border border-[#373737] rounded-r-[10px]">
+      <div className={componentsStyle.pointBox}>
         <input
           type="number"
           step="any"
           value={x}
-          className={componentsStyle.extent}
+          className={componentsStyle.extents}
           onChange={(e) => onChange([parseFloat(e.target.value), y])}
           style={{ flex: 1 }}
         />
@@ -25,7 +25,7 @@ const PointInput= ({ label, value, onChange, error }:Props) => {
           type="number"
           step="any"
           value={y}
-          className={componentsStyle.extent}
+          className={componentsStyle.extents}
           onChange={(e) => onChange([x, parseFloat(e.target.value)])}
           style={{ flex: 1 }}
         />
