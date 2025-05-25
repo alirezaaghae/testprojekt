@@ -60,22 +60,21 @@ export function validateField<K extends keyof ConfigData>(
     }
 
     case "point": {
-      if (!Array.isArray(value) || value.length !== 2 || !value.every(v => typeof v === "number"))
+      if (!Array.isArray(value) || 
+          value.length !== 2 || 
+          !value.every(v => typeof v === "number" && Number.isFinite(v))
+        )
         return "Ungültiger Punkt";
-      if (value[0] === 0 && value[1] === 0) return "Ungültiger Punkt";
+      if (value[0] === 0 && value[1] === 0 ) return "Ungültiger Punkt";
       return null;
     }
 
     case "extent": {
-      if (!Array.isArray(value) || value.length !== 4 || !value.every(v => typeof v === "number"))
+      if (!Array.isArray(value) || 
+      value.length !== 4 || 
+      !value.every(v => typeof v === "number" && Number.isFinite(v))
+    )
         return "Ungültiges Extent";
-      return null;
-    }
-
-    case "select":
-    case "combobox": {
-      if (!config?.items?.some(([val]) => val === value))
-        return "Ungültiger Wert ausgewählt";
       return null;
     }
 

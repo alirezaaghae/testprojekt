@@ -5,8 +5,8 @@ export const componentsStyle = {
     error : "text-xs text-red-500 mt-1 list-item w-max",
     extents : "w-full p-2 h-full text-center focus:outline-none focus:ring-0 focus:bg-gray-100",
     extentBox : "grid grid-cols-2 divide-x-1 divide-y-1 divide-gray-300 h-full border border-[#373737] rounded-r-[10px]",
-    pointBox : "grid grid-cols-2 h-full w-full divide-x-1 divide-gray-300 border border-[#373737] rounded-r-[10px]"
-
+    pointBox : "grid grid-cols-2 h-full w-full divide-x-1 divide-gray-300 border border-[#373737] rounded-r-[10px]",
+    comboBox : "grid divide-y-1 divide-gray-200 w-full bg-[#f0f0f0] rounded-b-[20px] mt-[5px] border border-[#dfdfdf]"
 }
 
 export const inputStyle = (error?: string): string => 

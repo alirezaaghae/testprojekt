@@ -10,7 +10,10 @@ const DurationInput = ({ label, value, onChange, error}:Props) => {
   const handle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = parseInt(e.target.value, 10)
     if (isNaN(v)) return onChange(0)
-    onChange(v)
+    else {
+        e.currentTarget.value = v.toString();
+        onChange(v);
+      }
   }
   return (
     <div className="mb-3">

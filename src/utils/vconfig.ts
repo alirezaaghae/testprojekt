@@ -6,7 +6,6 @@ type FieldValidationConfig = {
     maxLength?: number;
     minValue?: number;
     maxValue?: number;
-    items?: [string | number, string][];
   };
 };
 
@@ -30,17 +29,5 @@ export const validationConfig: FieldValidationConfig = {
   duration: {
     minValue: 60,
     maxValue: 86400,
-  },
-  select: {
-    items: [
-      [1, "Option A"],
-      [2, "Option B"],
-    ],
-  },
-  combobox: {
-    items: [
-      ["key1", "Label 1"],
-      ["key2", "Label 2"],
-    ],
   },
 };
