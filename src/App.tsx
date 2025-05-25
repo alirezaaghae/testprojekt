@@ -12,7 +12,7 @@ const initial: ConfigData = {
   integer : 42,
   float : 3.14,
   date : '2023-10-01',
-  datetime : '2023-10-01T12:00:00Z',
+  datetime : '2023-10-01T12:00',
   duration: 3600,
   point: [1.0, 2.0],
   extent: [1.0, 2.0, 3.0, 4.0],
@@ -26,9 +26,7 @@ function App() {
   const update = <K extends keyof ConfigData>(key:K ,value:ConfigData[K]) => {
     setData((d)=>({...d,[key] : value}))
     const error = validateField(key, value, validationConfig[key]);
-    setErrors((prev) => ({ ...prev, [key]: error || "" }));  
-    console.log(value);
-    
+    setErrors((prev) => ({ ...prev, [key]: error || "" })); 
   }
 
   return (
@@ -46,7 +44,7 @@ function App() {
         <C.ComboboxInput label="EPSG code" value={data.combobox} onChange={(v) => update('combobox', v)} items={EpsgData()} error={errors.combobox} />
       </div>
       <div className='flex-1 mt-3'>
-        <pre className='text-left flex justify-center'>{JSON.stringify(data, null, 2)}</pre>
+        <pre className='text-left text-[#6f7e87] flex justify-center '>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </div>
   )

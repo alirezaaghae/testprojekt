@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -10,11 +10,11 @@ const DateTimeInput = ({ label, value, onChange, error }:Props) => {
   return (
     <div className="mb-3">
       <label className={componentsStyle.body}>
-        <span className={componentsStyle.label}>{label}</span>
+        <span className={labelStyle(error)}>{label}</span>
         <input
             type="datetime-local"
             value={value}
-            className={inputStyle(error)}
+            className={componentsStyle.input}
             onChange={(e) => onChange(e.target.value)}
         />
       </label>

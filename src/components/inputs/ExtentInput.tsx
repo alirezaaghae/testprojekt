@@ -1,4 +1,4 @@
-import { componentsStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -16,12 +16,12 @@ const ExtentInput= ({ label, value, onChange, error }:Props) => {
   return (
     <div className="mb-3">
       <label className={`${componentsStyle.body} h-24`}>
-        <span className={componentsStyle.label}>{label}</span>
+        <span className={labelStyle(error)}>{label}</span>
         <div className={componentsStyle.extentBox}>
-            <input type="number" step="any" placeholder="xmin" className={componentsStyle.extents} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="ymin" className={componentsStyle.extents} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="xmax" className={componentsStyle.extents} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
-            <input type="number" step="any" placeholder="ymax" className={componentsStyle.extents} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="xmin" className={`${componentsStyle.input} text-center rounded-none!`} value={xmin} onChange={(e) => update(0, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymin" className={`${componentsStyle.input} text-center rounded-none!`} value={ymin} onChange={(e) => update(1, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="xmax" className={`${componentsStyle.input} text-center rounded-none!`} value={xmax} onChange={(e) => update(2, parseFloat(e.target.value))} />
+            <input type="number" step="any" placeholder="ymax" className={`${componentsStyle.input} text-center rounded-none!`} value={ymax} onChange={(e) => update(3, parseFloat(e.target.value))} />
         </div>
       </label>
         {error && <p className={componentsStyle.error}>{error}</p>}

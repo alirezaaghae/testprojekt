@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer utilities {
+  option:checked {
+    @apply bg-[#58cbff] text-white font-medium;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

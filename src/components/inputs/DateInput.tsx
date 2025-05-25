@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props{
     label: string
@@ -12,13 +12,13 @@ const DateInput= ({ label, value, onChange, error, minValue, maxValue }: Props) 
   return (
     <div className="mb-3">
       <label className={componentsStyle.body}>
-        <span className={componentsStyle.label}>{label}</span>
+        <span className={labelStyle(error)}>{label}</span>
         <input
             type="date"
             value={value}
             min={minValue}
             max={maxValue}
-            className={inputStyle(error)}
+            className={componentsStyle.input}
             onChange={(e) => onChange(e.target.value)}
         />
       </label>

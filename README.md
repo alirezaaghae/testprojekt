@@ -5,6 +5,7 @@ Dieses Projekt ist eine vollständig interaktive Konfigurationsoberfläche, die 
 ## Features
 
 - Dynamische Formulareingaben
+- full Responsive
 - Moderne UI mit React + TailwindCSS
 - Typensichere Struktur mit TypeScript
 - Live-Anzeige der JSON-Datenstruktur
@@ -65,9 +66,9 @@ Die Eingabekomponenten decken folgende Typen ab:
 - Select (Listbox)
 - Combobox (durchsuchbar)
 
-```bash
-Bearbeitung von Inputs Eigenschaften in src/utils/vconfig.ts
-```
+
+# Bearbeitung von Inputs Eigenschaften in src/utils/vconfig.ts
+
 
 ## Kontakt
 

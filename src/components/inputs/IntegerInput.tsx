@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle";
+import { componentsStyle, labelStyle } from "../../utils/inputStyle";
 
 interface Props{
     label:string
@@ -18,9 +18,9 @@ const IntegerInput = ({ label, value, onChange, error } : Props) => {
   return (
     <div className="mb-3">
       <label className={componentsStyle.body}>
-        <span className={componentsStyle.label}>{label}</span>
+        <span className={labelStyle(error)}>{label}</span>
         <input 
-          className={inputStyle(error)} 
+          className={componentsStyle.input} 
           type="number" 
           value={value} 
           onChange={handle} 

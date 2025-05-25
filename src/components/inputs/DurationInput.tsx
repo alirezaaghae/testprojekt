@@ -1,4 +1,4 @@
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -18,8 +18,8 @@ const DurationInput = ({ label, value, onChange, error}:Props) => {
   return (
     <div className="mb-3">
       <label className={componentsStyle.body}>
-        <span className={componentsStyle.label}>{label}</span>
-        <input className={inputStyle(error)} type="number" value={value} onChange={handle} />
+        <span className={labelStyle(error)}>{label}</span>
+        <input className={componentsStyle.input} type="number" value={value} onChange={handle} />
       </label>
         {error && <p className={componentsStyle.error}>{error}</p>}
     </div>

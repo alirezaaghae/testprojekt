@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { componentsStyle, inputStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -23,11 +23,11 @@ const ComboboxInput = ({ label, value, onChange, items, error } : Props) => {
   return (
     <div className="mb-3">
       <label className={componentsStyle.body}>
-              <span className={componentsStyle.label}>{label}</span>
+              <span className={labelStyle(error)}>{label}</span>
       <input
         type="text"
         placeholder="filter..."
-        className={inputStyle(error)}
+        className={componentsStyle.input}
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />

@@ -1,4 +1,4 @@
-import { componentsStyle } from "../../utils/inputStyle"
+import { componentsStyle, labelStyle } from "../../utils/inputStyle"
 
 interface Props {
   label: string
@@ -11,13 +11,13 @@ const PointInput= ({ label, value, onChange, error }:Props) => {
   return (
     <div className="mb-3">
         <label className={componentsStyle.body}>
-                <span className={componentsStyle.label}>{label} (x, y)</span>
+                <span className={labelStyle(error)}>{label} (x, y)</span>
       <div className={componentsStyle.pointBox}>
         <input
           type="number"
           step="any"
           value={x}
-          className={componentsStyle.extents}
+          className={`${componentsStyle.input} text-center rounded-none!`}
           onChange={(e) => onChange([parseFloat(e.target.value), y])}
           style={{ flex: 1 }}
         />
@@ -25,7 +25,7 @@ const PointInput= ({ label, value, onChange, error }:Props) => {
           type="number"
           step="any"
           value={y}
-          className={componentsStyle.extents}
+          className={`${componentsStyle.input} text-center rounded-none!`}
           onChange={(e) => onChange([x, parseFloat(e.target.value)])}
           style={{ flex: 1 }}
         />
