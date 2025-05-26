@@ -44,7 +44,7 @@ function App() {
         <C.ComboboxInput label="EPSG code" value={data.combobox} onChange={(v) => update('combobox', v)} items={EpsgData()} error={errors.combobox} />
       </div>
       <div className='flex-1 mt-3'>
-        <pre className='text-left text-[#6f7e87] flex justify-center '>{JSON.stringify(data, null, 2)}</pre>
+        <pre className='text-left text-[#6f7e87] flex justify-center text-shadow-custom'>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </div>
   )

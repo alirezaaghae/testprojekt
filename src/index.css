@@ -4,6 +4,12 @@
   option:checked {
     @apply bg-[#58cbff] text-white font-medium;
   }
+  .text-shadow-custom {
+    text-shadow: 1px 1px 1px rgb(255,255,255);
+  }
+  .text-shadow-custom-labels {
+    text-shadow: 1px 1px 1px #829198;
+  }
 }
 
 :root {
