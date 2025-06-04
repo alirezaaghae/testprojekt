@@ -10,7 +10,7 @@ interface Props{
 }
 const DateInput= ({ label, value, onChange, error, minValue, maxValue }: Props) => {
   return (
-    <div className="mb-3">
+    <div className="mb-3 fade-in">
       <label className={componentsStyle.body}>
         <span className={labelStyle(error)}>{label}</span>
         <input

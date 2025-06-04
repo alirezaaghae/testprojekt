@@ -14,7 +14,7 @@ const ExtentInput= ({ label, value, onChange, error }:Props) => {
     onChange(nv)
   }
   return (
-    <div className="mb-3">
+    <div className="mb-3 fade-in">
       <label className={`${componentsStyle.body} h-24`}>
         <span className={labelStyle(error)}>{label}</span>
         <div className={componentsStyle.extentBox}>

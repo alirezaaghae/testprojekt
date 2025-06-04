@@ -10,7 +10,7 @@ interface Props {
 const StringInput = ({label,value,onChange,error}:Props) => {
     
     return (
-        <div className="mb-3">
+        <div className="mb-3 fade-in">
             <label className={componentsStyle.body}>
                 <span className={labelStyle(error)}>{label}</span>
                 <input className={componentsStyle.input} type="text" placeholder="Name" value={value} onChange={(e) => onChange(e.target.value)}/>
