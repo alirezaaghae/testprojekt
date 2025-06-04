@@ -31,7 +31,8 @@ export function validateField<K extends keyof ConfigData>(
     }
 
     case "float": {
-      if (typeof value !== "number") return "Ungültiger Float-Wert";
+      if (typeof value !== "number" || !Number.isFinite(value))
+        return "Ungültiger Float-Wert";
       if (config?.minValue !== undefined && value < config.minValue)
         return `Muss mindestens ${config.minValue} sein`;
       if (config?.maxValue !== undefined && value > config.maxValue)
