@@ -21,7 +21,7 @@ const ComboboxInput = ({ label, value, onChange, items, error } : Props) => {
     onChange(v)
   }
   return (
-    <div className="mb-3">
+    <div className="mb-3 fade-in">
       <label className={componentsStyle.body}>
               <span className={labelStyle(error)}>{label}</span>
       <input

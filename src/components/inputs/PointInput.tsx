@@ -9,7 +9,7 @@ interface Props {
 const PointInput= ({ label, value, onChange, error }:Props) => {
   const [x, y] = value
   return (
-    <div className="mb-3">
+    <div className="mb-3 fade-in">
         <label className={componentsStyle.body}>
                 <span className={labelStyle(error)}>{label} (x, y)</span>
       <div className={componentsStyle.pointBox}>

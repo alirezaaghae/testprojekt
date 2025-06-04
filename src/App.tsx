@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className='flex flex-col sm:flex-row'>
+    <div className="form-container fade-in flex flex-col sm:flex-row gap-6">
       <div className='flex-1'>
         <C.StringInput label='Name' value={data.name} onChange={(v)=>update('name',v)} error={errors.name}/>
         <C.IntegerInput label='Integer' value={data.integer} onChange={(v)=>update('integer',v)} error={errors.integer}/>
@@ -43,7 +43,7 @@ function App() {
         <C.SelectInput label="Select unit" value={data.select} onChange={(v) => update('select', v)} items={selectItems} error={errors.select} />
         <C.ComboboxInput label="EPSG code" value={data.combobox} onChange={(v) => update('combobox', v)} items={EpsgData()} error={errors.combobox} />
       </div>
-      <div className='flex-1 mt-3'>
+      <div className='flex-1 mt-3 sm:mt-0'>
         <pre className='text-left text-[#6f7e87] flex justify-center text-shadow-custom'>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </div>

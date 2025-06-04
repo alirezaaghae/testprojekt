@@ -1,10 +1,13 @@
 #root {
-  max-width: 1280px;
-  /* margin: 0 auto; */
-  padding: 2rem;
+  max-width: 800px;
+  margin: 40px auto;
   text-align: center;
-  background-color: #ecf0f3;
-  box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
-  border-radius: 12px;
-  margin:20px auto;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
 }
